@@ -50,13 +50,13 @@ angular.module('app')
                 //For DOM -> model validation
                 ngModel.$parsers.unshift(function (value) {
                     var valid = value && isValidFormat(value);
-                    ngModel.$setValidity('validity', valid);
+                    ngModel.$setValidity('format', valid);
                     return valid ? value : undefined;
                 });
 
                 //For model -> DOM validation
                 ngModel.$formatters.unshift(function (value) {
-                    ngModel.$setValidity('validity', value && isValidFormat(value));
+                    ngModel.$setValidity('format', value && isValidFormat(value));
                     return value;
                 });
             }
